@@ -4,10 +4,10 @@ An agent skill for coordinating sustained multi-agent engineering work through
 Herdr, with frozen acceptance gates, explicitly owned implementation lanes,
 measured evidence, a mandatory Code Review Pass, and durable handovers.
 
-The package incorporates the complete Herdr and Code Review Pass skill playbooks,
-so one installation contains the coordination and review procedures it needs.
-The Herdr CLI and a Herdr-managed session (`HERDR_ENV=1`) are runtime
-prerequisites.
+The package incorporates the complete Herdr and Code Review Pass playbooks plus
+native Codex and Claude definitions for the two review agents, so one installation
+contains the coordination and review procedures it needs. The Herdr CLI and a
+Herdr-managed session (`HERDR_ENV=1`) are runtime prerequisites.
 
 ## Install
 
@@ -35,7 +35,7 @@ Every implementation lane follows the same completion loop:
 2. Implement and capture meaningful red/green evidence.
 3. Quiesce the lane at `READY-FOR-REVIEW`.
 4. Run the incorporated Code Review Pass through independent design and
-   correctness lenses.
+   correctness custom-agent lenses, dispatched and messaged through Herdr.
 5. Return confirmed findings to the lane writer, verify remediation, and re-run
    affected lenses.
 6. Mark the lane `DONE` only after both lenses clear the final revision.
@@ -53,6 +53,9 @@ live in [`references/`](references/).
 ├── embedded/
 │   ├── code-review-pass/
 │   │   ├── PLAYBOOK.md
+│   │   ├── agents/
+│   │   │   ├── codex/
+│   │   │   └── claude/
 │   │   ├── references/
 │   │   └── scripts/
 │   └── herdr/
@@ -67,3 +70,19 @@ live in [`references/`](references/).
 
 Once installed through the CLI, the skill becomes eligible for discovery on
 [`skills.sh`](https://skills.sh/).
+
+The `skills` CLI keeps custom-agent files inside the installed skill; current
+Codex and Claude releases discover custom agents only from their own agent
+directories. With permission to add project configuration, register the embedded
+reviewers from the target repository before starting their Herdr panes:
+
+```bash
+fleet_skill_dir="<installed-fleet-campaign-directory>"
+bash "$fleet_skill_dir/embedded/code-review-pass/scripts/register-agents.sh" \
+  --host all --project-root "$PWD"
+```
+
+Registration is idempotent and preserves conflicting local definitions unless
+`--force` is explicitly supplied. See
+[`embedded/code-review-pass/agents/README.md`](embedded/code-review-pass/agents/README.md)
+for native names and Herdr dispatch patterns.

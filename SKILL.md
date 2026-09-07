@@ -101,9 +101,14 @@ end of a lane.
    its witnesses. Do not push or integrate it yet.
 4. **REVIEWING:** Read
    [embedded/code-review-pass/PLAYBOOK.md](embedded/code-review-pass/PLAYBOOK.md)
+   and its [embedded named-agent contract](embedded/code-review-pass/agents/README.md)
    completely and run its design and correctness lenses against the frozen target.
-   Dispatch separate read-only reviewer agents through Herdr when the campaign has
-   the authorized capacity. Keep their conclusions independent until both return.
+   The incorporated package contains native Codex and Claude definitions for both
+   reviewers. Register them only with authority to modify project agent config,
+   then dispatch separate read-only reviewer agents through Herdr when the campaign
+   has the authorized capacity. Herdr remains the launcher, prompt transport and
+   lifecycle authority whether the roles are natively registered or prompt-loaded.
+   Keep their conclusions independent until both return.
 5. **REMEDIATING:** The coordinator consolidates one finding ledger and routes
    every confirmed in-scope finding, including nits, back to the original lane
    writer. A finding may close only as fixed in the same increment, disproved

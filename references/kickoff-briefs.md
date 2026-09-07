@@ -67,17 +67,18 @@ claims about an unmeasured production system.
 
 ## Code Review Pass reviewer
 
-Read the assigned design- or correctness-lens brief under
-`embedded/code-review-pass/references/`. Inspect the frozen final revision/diff
-and agreed headline risk using read-only source and object-database operations.
-Check acceptance cases, concurrency/failure interleavings when material,
-meaningful red controls witnessed on the actual pre-fix shape (a red derived from
-a reasoning step is a hypothesis), and whether the witnesses cover the final
-change. A probe that skipped the cases it could not construct proves only that
-subset: require a total probe or an honest unknown, never a partial set presented
-as unanimity. Disclose missing graph/source/test coverage. Do not change the
-tree, share the other lens's conclusions, or run stateful checks without
-permission.
+Read the selected host's assigned design- or correctness-lens definition under
+`embedded/code-review-pass/agents/` and the agent runtime contract there. Record
+the native custom-agent name or disclose that the role was prompt-loaded. Inspect
+the frozen final revision/diff and agreed headline risk using read-only source and
+object-database operations. Check acceptance cases, concurrency/failure
+interleavings when material, meaningful red controls witnessed on the actual
+pre-fix shape (a red derived from a reasoning step is a hypothesis), and whether
+the witnesses cover the final change. A probe that skipped the cases it could not
+construct proves only that subset: require a total probe or an honest unknown,
+never a partial set presented as unanimity. Disclose missing graph/source/test
+coverage. Do not change the tree, share the other lens's conclusions, or run
+stateful checks without permission.
 
 Report ranked actionable findings with file:line, affected behavior, evidence,
 and an acceptance-case gap. Existing rulings are context, not a reason to conceal
