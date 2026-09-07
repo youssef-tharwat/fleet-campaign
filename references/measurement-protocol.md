@@ -57,6 +57,11 @@ witnesses as well as counts. Preserve duplicate events; report distinct unions
 additionally. A repository-wide scope is not one file. Missing hit/miss counters
 are unavailable, not zero, and cannot be inferred from elapsed time.
 
+Reproduce a reported defect on the reporter's exact binary, revision, and cache
+state before attributing it. A non-reproduction on a different build profile,
+commit, or cache is a stop that names those confounders, not a dismissal; a
+cache-key bump that makes a defect vanish is a cache miss, not a correction.
+
 ## Validate the instrument
 
 Dry-run the adapter and exercise a meaningful failure/refusal path before trusting
@@ -75,10 +80,15 @@ instruments by silently changing units or choosing the convenient number.
 ## Archive and report
 
 Archive raw observations with the run, before releasing a disposable runner.
-Keep original-byte and compressed-file hashes when compressing large artifacts.
-Validate returned bytes, report capture losses, and release only the lease you
-own. A retry after partial execution is a new recorded attempt unless the
-protocol establishes a safe resume; transport retry must not duplicate a workload.
+Preserve a failed stage's originals the same way: a create-only upload under a
+distinct refused-attempt prefix, an exact-generation readback of size and digest,
+an inventory manifest, and no run admission claimed. The archived milestone is
+the durable state; the runner is not. Keep original-byte and compressed-file
+hashes when compressing large artifacts. Validate returned bytes, report capture
+losses, and release only the lease you own, on its deadline whether or not the
+work finished. A retry after partial execution is a new recorded attempt unless
+the protocol establishes a safe resume; transport retry must not duplicate a
+workload.
 
 Separate measured, code-cited, historical, and hypothetical claims. Report all
 trials and spread; do not present a handful of trials as a stable tail-latency

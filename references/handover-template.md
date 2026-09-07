@@ -11,13 +11,15 @@ copy in a terminal or disposable build directory.
 3. **Frozen contract:** goal, design/protocol and register paths; accepted hashes;
    binding rulings/riders; permissions still missing. Separate measured facts
    from assumptions and superseded decisions.
-4. **Completed work:** artifacts, raw witnesses, source and binary provenance,
-   commands/results, outstanding limitations. Do not ask the successor to rerun
-   completed expensive work just to recover context.
+4. **Completed work:** artifacts, raw witnesses, failed-stage originals and where
+   they were preserved, source and binary provenance, commands/results,
+   outstanding limitations. Do not ask the successor to rerun completed expensive
+   work just to recover context.
 5. **Next bounded deliverable:** ordered remaining tasks, acceptance criteria,
    required acknowledgment, and the first safe action. Name what must not resume.
 6. **Live resources:** tool/session handles, command or job still running, lease
-   claiming root/ID, resource budget, and who owns cancellation/release.
+   claim line (claiming root/ID, never a resemblance by creation time or
+   address), release deadline, resource budget, and who owns cancellation/release.
 7. **Resume checks:** read-only source/status checks, graph freshness/coverage
    caveats, tool availability, environment needs, relevant build/test policy.
    Never include secret values; name the approved secret-access mechanism.

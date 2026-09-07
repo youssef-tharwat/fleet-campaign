@@ -1,4 +1,4 @@
 interface:
   display_name: "Fleet Campaign"
-  short_description: "Coordinate evidence-gated multi-agent engineering"
-  default_prompt: "Use $fleet-campaign to plan or run the requested engineering campaign within its approved scope, using frozen gates, owned lanes, measurement, and review."
+  short_description: "Run Herdr fleets with mandatory lane reviews"
+  default_prompt: "Use $fleet-campaign to run this Herdr-managed engineering campaign with frozen gates, owned lanes, and a Code Review Pass before each lane completes."

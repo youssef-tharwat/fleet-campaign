@@ -22,16 +22,26 @@ latency are separate gates; a safety regression test is not a performance result
 
 ## Work items
 
-| ID | Gate advanced | Increment / non-goals | Owner + file territory | Source identity | Dependencies | State | Evidence / review | Next trigger |
-|---|---|---|---|---|---|---|---|---|
+| ID | Gate advanced | Increment / non-goals | Owner + file territory | Source identity | Runtime binding | Dependencies | State | Evidence / review | Next trigger |
+|---|---|---|---|---|---|---|---|---|---|
+
+For every implementation lane, `Runtime binding` records the approved absolute
+worktree path, Herdr agent name and pane ID, verified pane cwd, isolated state
+root, and the exact environment variable or CLI flag that binds local commands to
+that state. Record and verify this binding before moving the item to IMPLEMENTING.
+`Evidence / review` names durable paths: witnesses, the finding ledger, and any
+failed-stage originals preserved before a runner was released.
 
 Useful states: PROPOSED, MEASURING, DESIGN-REVIEW, ACKED, IMPLEMENTING,
-READY-FOR-REVIEW, BLOCKED, PARKED, DONE. Name the actual blocker or resumption
-trigger; an idle pane is not proof that an item is done.
+READY-FOR-REVIEW, REVIEWING, REMEDIATING, RE-REVIEWING, BLOCKED, PARKED, DONE.
+Name the actual blocker or resumption trigger; an idle pane is not proof that an
+item is done. An implementation lane cannot reach DONE until its final Code
+Review Pass has no unresolved finding.
 
 Keep a dated ruling record with the question, decision, authority, riders, and
-evidence. Append an explicit correction when new evidence falsifies a ruling;
-do not rewrite history to imply the corrected fact was known earlier.
+evidence. Stamp every register entry on one clock, UTC. Append an explicit
+correction when new evidence falsifies a ruling or a stamp proves wrong; do not
+rewrite history to imply the corrected fact was known earlier.
 
 DONE records what actually finished: measurement accepted, design accepted,
 implementation reviewed, or change integrated, as applicable. For integrated
