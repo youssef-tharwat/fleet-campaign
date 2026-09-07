@@ -1,0 +1,4 @@
+interface:
+  display_name: "Fleet Campaign"
+  short_description: "Coordinate evidence-gated multi-agent engineering"
+  default_prompt: "Use $fleet-campaign to plan or run the requested engineering campaign within its approved scope, using frozen gates, owned lanes, measurement, and review."
