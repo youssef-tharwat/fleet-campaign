@@ -61,8 +61,9 @@ matching Claude Markdown definition as the complete portable role prompt.
 
 When Fleet Campaign has authorized reviewer capacity, use Herdr to dispatch two
 separate read-only review agents. Native custom-agent selection configures the
-reviewer role; Herdr remains the required launcher, message transport and
-lifecycle authority. Pass each reviewer the exact root/revision/diff, relevant
+reviewer role; Herdr remains the required launcher, delivery and lifecycle
+authority. Each reviewer reports in a LEAD-TOKEN block in its own pane; an
+unmigrated campaign keeps its existing channel. Pass each reviewer the exact root/revision/diff, relevant
 instructions, evidence gaps, and a read-only assignment. Do not share the other
 lens's conclusions before both return. Inherit the user's model choices; no
 particular model, vendor, or graph service is required.
@@ -76,7 +77,11 @@ Reviewers do not recursively launch teams.
 ## 3. Consolidate and rule
 
 Keep one finding ledger, deduplicated by mechanism and location, ordered by
-severity: blocker, high, medium, low, nit. For each entry record:
+severity: blocker, high, medium, low, nit. In Fleet campaigns, the coordinator's
+ruling comments on the PR, one per round with stable finding IDs, form that
+ledger; follow [the register contract](../../references/register-template.md).
+Preserve an unmigrated campaign's existing ledger until cutover. For each entry
+record:
 
 ```text
 ID · severity · category · file:line

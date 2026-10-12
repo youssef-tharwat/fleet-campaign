@@ -1,8 +1,11 @@
 # Role briefs
 
-Fill the relevant brief before dispatch. Link durable contracts instead of
-retyping them into every message. A delegated agent must be told it is not alone
-and must not revert or overwrite others' edits. Do not assume it inherits tools,
+Fill the relevant brief before dispatch and deliver it with `herdr agent prompt`
+(from a file, as [coordination.md](coordination.md) describes). Put heavy material
+in the campaign's evidence directory and name the path. Link durable contracts
+and PR comments instead of retyping them into every prompt. A delegated agent
+must be told it is not alone and must not revert or overwrite others' edits.
+Do not assume it inherits tools,
 permissions, repository context, or the coordinator's conversation.
 
 ## Shared contract fields
@@ -11,7 +14,10 @@ permissions, repository context, or the coordinator's conversation.
 Campaign / item / role:
 Coordinator and Herdr workspace/tab/pane or agent target:
 Deliverable and measurable done condition:
-Read first: project instructions, goal, register, acknowledged design/protocol:
+Read first: project instructions, frozen goal, acknowledged design/protocol, ruling comment URLs:
+Ticket/PR task ID (for reference; the coordinator alone writes it):
+Review round/lens and open finding IDs when applicable:
+How to report: one LEAD-TOKEN block as the last pane output; no report file, no mail:
 Source: repository root, branch/commit, dirty/untracked state, relevant hashes:
 Approved absolute implementation worktree (required for a writing lane):
 Herdr agent name + pane ID; verified pane cwd:
@@ -32,8 +38,10 @@ authority/safety/resource boundary. An automated approval boundary met inside a
 lane belongs to the human: keep the design, reshape the patch into small,
 each-compiling increments through the same review, and stop for the human's mode
 decision when a single-file increment is still refused. Report completion and
-blockers actively to the coordinator; a file left in your own pane is not a
-delivered report.
+blockers in a LEAD-TOKEN block that is the last output in your own pane; the lane
+watcher flags you idle and the coordinator reads it. A block buried under later
+output, or a report file, is not a delivered report. An unmigrated campaign uses
+its existing channel.
 
 ## Implementation lane
 
@@ -48,10 +56,11 @@ intentional refactors and migration consequences; a schema or migration change
 accepts the previous identity without writing, never rewriting a shared record on
 read (a one-way door for every older binary on the machine).
 
-Deliver `READY-FOR-REVIEW` through Herdr with the diff/revisions, red/green
-transcripts, command flags, scope derivation, measured payoff where applicable,
-and known gaps. Quiesce for the mandatory Code Review Pass. Do not push merely
-because implementation or local tests finished.
+End with a `READY-FOR-REVIEW` block containing the diff/revisions, red/green
+evidence, command flags, scope derivation, measured payoff where applicable, and
+known gaps. A remediation round answers every ruled finding ID from the PR
+comment. Quiesce for the mandatory Code Review Pass. Do not push merely because
+implementation or local tests finished: a push needs an explicit grant.
 
 ## Measurement / design agent
 
@@ -80,6 +89,8 @@ never a partial set presented as unanimity. Disclose missing graph/source/test
 coverage. Do not change the tree, share the other lens's conclusions, or run
 stateful checks without permission.
 
-Report ranked actionable findings with file:line, affected behavior, evidence,
-and an acceptance-case gap. Existing rulings are context, not a reason to conceal
-contradictory evidence. Distinguish unverified hypotheses from established defects.
+Report ranked actionable findings in a LEAD-TOKEN block, the last output in your
+own pane, with file:line, affected behavior, evidence and an acceptance-case gap.
+Leave confirmation, finding IDs and the PR ruling comment to the coordinator.
+Existing rulings are context, not a reason to conceal contradictory evidence.
+Distinguish unverified hypotheses from established defects.
