@@ -58,6 +58,13 @@ file:line, problem, concrete consequence, proposed remedy and confidence.
 Reference the violated contract or local convention. Label an unverified concern
 as a question, not a proven defect. Include valid nits when requested; invent none.
 
+Classify each finding as an **instance** (one case) or a **mechanism** finding.
+When a finding is a new case of a defect class seen in an earlier round of the
+same review, or the change works by enumerating cases (phrase lists, per-site
+patches, one-off guards, workaround scaffolding without a tracked replacement),
+report it as a mechanism finding: name the root cause and the structural remedy
+that removes the whole class, not the next case to patch.
+
 Recommend principled refactors when warranted and name their affected boundary.
 Respect explicit compatibility/rollout contracts; do not add a shim or preserve a
 bad abstraction merely to keep a diff small. Flag remedies requiring a new

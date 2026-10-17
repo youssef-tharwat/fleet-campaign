@@ -170,6 +170,16 @@ Implementation and local green tests are not the end of a lane.
    to that writer. A finding may close only as fixed in the same increment, disproved
    with code-cited evidence, or escalated as a ruling that changes the agreed
    design; deferral is not a closing state.
+   **Root cause over symptoms (all work, not only fixes).** A ruling names the
+   cause and the proper mechanism, never a patch for the cited case alone. When a
+   lens finding is a new instance of a class already ruled on (the same mechanism,
+   a new input), or when a remedy only works by enumerating cases, the coordinator
+   stops the patch loop and rules on the mechanism: a design ruling, preferring a
+   structural fix that makes the defect impossible over one that detects it. Never
+   cap such a loop by declaring a "last round"; a cap turns the remaining instances
+   into silent debt. Temporary scaffolding (a wrapper, a guard in a script outside
+   the repository, a bridge around missing infrastructure) is allowed only with a
+   named, tracked replacement, and it is removed when that replacement lands.
 6. **RE-REVIEWING:** Re-run affected tests and the proportionate review required
    by Code Review Pass. Any behavior-changing remediation re-enters both lenses;
    the reviewers inspect the resulting final diff rather than the obsolete one.

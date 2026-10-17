@@ -64,6 +64,13 @@ confirmed defects from open questions; style alone is not a correctness blocker.
 Mention relevant missing tests without claiming they were run. Include in-scope
 minor issues when requested, without manufacturing findings to fill a quota.
 
+Classify each finding as an **instance** (one case) or a **mechanism** finding.
+When a finding is a new case of a defect class seen in an earlier round of the
+same review, or the change under review works by enumerating cases (phrase lists,
+per-site patches, one-off guards), report it as a mechanism finding: name the
+root cause and the structural remedy that removes the whole class, not the next
+case to patch.
+
 Recommend the principled remedy and name any necessary refactor, migration or
 rollout decision. Do not implement it or assume expanded authority. Return
 findings first, then assumptions, inspected impact scope and residual risks. If no
