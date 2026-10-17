@@ -32,6 +32,12 @@ Evidence already collected, coverage gaps, and unresolved questions:
 
 All roles: preserve unexpected state, report discrepancies rather than patching
 around them, and distinguish measured facts, source evidence, and hypotheses.
+Every change, feature or fix, addresses the root cause or is the proper
+mechanism; no hacks, workarounds or rounds of symptom patching. If a review round
+finds a new case of a kind already fixed, or your change only works by listing
+cases, stop and report that the mechanism is the problem (a design ruling
+request) instead of adding another patch. Temporary scaffolding names its
+replacement and is removed when that lands.
 Continue through ordinary checkpoints only within the approved contract. Stop at
 surprise, the assigned review/ack handoff, a genuine ruling/blocker, or any
 authority/safety/resource boundary. An automated approval boundary met inside a
